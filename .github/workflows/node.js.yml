@@ -21,6 +21,11 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: 25
-        cache: 'npm'
-    - run: npm install
-    - run: npx ts-node build.ts
+        cache: 'pnpm'
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 9
+    
+    - run: pnpm install
+    - run: pnpm build
