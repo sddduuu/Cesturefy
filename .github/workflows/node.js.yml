@@ -16,16 +16,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: 25
-        cache: 'pnpm'
-    - name: Install pnpm
-      uses: pnpm/action-setup@v4
-      with:
-        version: 9
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Use Node.js 
+        uses: actions/setup-node@v4
+        with:
+          node-version: 25
+          cache: 'pnpm'
+          
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
     
-    - run: pnpm install
-    - run: pnpm build
+      - run: pnpm install
+      - run: pnpm build
